@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  
   model: any ={}
 
 
