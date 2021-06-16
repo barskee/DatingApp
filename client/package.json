@@ -29,8 +29,10 @@
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^6.2.0",
     "ngx-spinner": "^11.0.1",
+    "ngx-timeago": "^2.0.0",
     "ngx-toastr": "^13.2.1",
     "popper.js": "^1.16.1",
+    "rm": "^0.1.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
