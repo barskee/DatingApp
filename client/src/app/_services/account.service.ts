@@ -27,6 +27,12 @@ export class AccountService {
 
   setCurrentUser(user: User)
   {
+      user.roles = [];
+      const roles = this.getDecodedToken(user.token).role; 
+      //jesli uzytkownik ma wicej niz jedną rolę, przyjdzie w tokenie jako array, ale jeśli ma tylko jedną, przyjdzie jako zwykły string 
+      //trzeba dorobic logikę do odczytu takiej sytuacji 
+      Array.isArray(roles) ? user.roles = roles: user.roles.push(roles); 
+      
       localStorage.setItem('user', JSON.stringify(user));
       this.currentUserSource.next(user); 
   }
@@ -44,5 +50,10 @@ export class AccountService {
   logout(){
     localStorage.removeItem('user');
     this.currentUserSource.next(null); 
+  }
+
+  getDecodedToken(token){
+    return JSON.parse(atob(token.split('.')[1])); 
+
   }
 }
